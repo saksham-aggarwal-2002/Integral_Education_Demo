@@ -1,0 +1,6 @@
+Naming Conventions
+- FLASK BluePrint have _bp suffix
+
+
+Structure Rules
+- All frontend in a single location

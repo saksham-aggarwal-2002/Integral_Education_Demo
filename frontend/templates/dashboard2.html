@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+
+{% block title %}Dashboard View 2{% endblock %}
+
+{% block content %}
+<div id="app">
+    
+  <h1 class="h3 mb-4 text-gray-800">Dashboard View 2</h1>
+
+  <div class="col-12">
+    
+    <card-four class="mb-4"></card-four> 
+    <div class="row mb-4">
+      <div class="col-md-6">
+        <card-two></card-two>
+      </div>
+      <div class="col-md-6">
+        <card-three></card-three>
+      </div>
+    </div>
+    <card-one class="mb-4"></card-one>
+    
+  </div>
+  
+
+</div>
+
+<!-- Custom CSS styling -->
+<link rel="stylesheet" href="{{ url_for('static', filename='css/cards.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/components.css') }}">
+
+<!-- Include ECharts and Vue 3 -->
+<script src="https://cdn.jsdelivr.net/npm/echarts/dist/echarts.min.js"></script>
+<script src="https://unpkg.com/vue@3/dist/vue.global.prod.js"></script>
+
+<!-- Card components -->
+<script src="{{ url_for('static', filename='js/components/multi_select.js') }}"></script>
+<script src="{{ url_for('static', filename='js/components/single_select.js') }}"></script>
+<script src="{{ url_for('static', filename='js/cards/card_1.js') }}"></script>
+<script src="{{ url_for('static', filename='js/cards/card_2.js') }}"></script>
+<script src="{{ url_for('static', filename='js/cards/card_3.js') }}"></script>
+<script src="{{ url_for('static', filename='js/cards/card_4.js') }}"></script>
+
+<!-- Mount Vue app -->
+<script>
+  const app = Vue.createApp();
+  
+  app.component('multi-select', MultiSelect); // register globally
+  app.component('single-select', SingleSelect);
+
+  app.component('card-one', CardOne);
+  app.component('card-two', CardTwo);
+  app.component('card-three', CardThree);
+  app.component('card-four', CardFour);
+
+  app.mount('#app');
+</script>
+{% endblock %}

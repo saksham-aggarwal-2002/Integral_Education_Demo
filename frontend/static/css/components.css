@@ -1,0 +1,83 @@
+/* Add to your CSS file */
+.multi-select-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 320px;
+}
+
+.multi-select {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.25rem;
+  border: 1px solid #e0e0e0;
+  border-radius: 6px;
+  padding: 6px 8px;
+  background: #fafbfc;
+  min-height: 38px;
+  cursor: text;
+  transition: border-color 0.2s;
+}
+
+.multi-select:focus-within {
+  border-color: #007bff;
+}
+
+.multi-select input {
+  border: none;
+  outline: none;
+  flex: 1;
+  min-width: 80px;
+  background: transparent;
+  font-size: 1rem;
+  padding: 4px 0;
+}
+
+.tag {
+  background: #007bff;
+  color: #fff;
+  border-radius: 3px;
+  padding: 2px 8px;
+  font-size: 0.95rem;
+  display: flex;
+  align-items: center;
+  margin-right: 2px;
+}
+
+.tag button {
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 1rem;
+  margin-left: 4px;
+  cursor: pointer;
+  padding: 0;
+}
+
+.options {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 100%;
+  z-index: 10;
+  background: #fff;
+  border: 1px solid #e0e0e0;
+  border-top: none;
+  border-radius: 0 0 6px 6px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+  max-height: 160px;
+  overflow-y: auto;
+}
+
+.option {
+  padding: 8px 12px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background 0.2s;
+  background: #fff; /* Ensure default background */
+}
+
+.option:hover,
+.option.highlighted {
+  background: #e0e0e0; /* More visible hover and highlight */
+}

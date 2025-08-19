@@ -1,0 +1,61 @@
+<!-- Sidebar -->
+<ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+
+  <!-- Sidebar - Brand -->
+  <a class="sidebar-brand d-flex align-items-center justify-content-center" href="{{ url_for('dashboard1.show_dashboard') }}">
+    <img src="{{ url_for('static', filename='img/logo.png') }}" alt="Integral Ed Logo" style="height: 40px;">
+  </a>
+
+  <!-- Divider -->
+  <hr class="sidebar-divider my-0">
+
+  <!-- Nav Item - Dashboard 1 -->
+  <li class="nav-item {% if request.endpoint == 'dashboard1.show_dashboard' %}active{% endif %}">
+    <a class="nav-link" href="{{ url_for('dashboard1.show_dashboard') }}">
+      <i class="fas fa-fw fa-tachometer-alt"></i>
+      <span>Dashboard View 1</span></a>
+  </li>
+
+  <!-- Nav Item - Dashboard 2 -->
+  <li class="nav-item {% if request.endpoint == 'students' %}active{% endif %}">
+    <a class="nav-link" href="{{ url_for('dashboard2.show_dashboard') }}">
+      <i class="fas fa-fw fa-users"></i>
+      <span>Dashboard View 2</span></a>
+  </li>
+
+  <!-- Nav Item - Dashboard 3 -->
+  <li class="nav-item {% if request.endpoint == 'performances' %}active{% endif %}">
+    <a class="nav-link" href="{{ url_for('dashboard3.show_dashboard') }}">
+      <i class="fas fa-fw fa-chart-line"></i>
+      <span>Dashboard View 3</span></a>
+  </li>
+
+  <!-- Nav Item - Automated Reporting -->
+  <li class="nav-item {% if request.endpoint == 'create_exam_set' %}active{% endif %}">
+    <a class="nav-link" href="{{ url_for('automated_reporting.create_exam_set') }}">
+      <i class="fas fa-fw fa-file-upload"></i>
+      <span>Automated Reporting</span></a>
+  </li>
+
+  <!-- Nav Item - Marking Assistance -->
+  <li class="nav-item {% if request.endpoint == 'exam_sets' %}active{% endif %}">
+    <a class="nav-link" href="{{ url_for('automated_marking.mark') }}">
+      <i class="fas fa-fw fa-folder-open"></i>
+      <span>Marking Assistance</span></a>
+  </li>
+
+
+
+  <!-- Divider -->
+  <hr class="sidebar-divider d-none d-md-block">
+
+  <!-- Logout -->
+  <li class="nav-item">
+    <a class="nav-link" href="{{ url_for('login') }}">
+      <i class="fas fa-fw fa-sign-out-alt"></i>
+      <span>Logout</span>
+    </a>
+  </li>
+
+</ul>
+<!-- End of Sidebar -->

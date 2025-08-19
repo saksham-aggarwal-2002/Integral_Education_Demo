@@ -1,0 +1,41 @@
+/* General card styling */
+.card {
+    background-color: #ffffff;       /* card background */
+    border-radius: 12px;             /* rounded corners */
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1); /* subtle shadow */
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    overflow: hidden;
+}
+
+/* Hover effect for depth */
+.card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+/* Card header */
+.card-title {
+    font-weight: 600;
+    font-size: 1.25rem;
+    color: #333333;
+    margin-bottom: 0.75rem;
+    border-bottom: 1px solid #e0e0e0;
+    padding-bottom: 0.5rem;
+}
+
+/* Card body */
+.card-body {
+    padding: 1.25rem;
+    color: #555555;
+    min-height: 250px;
+}
+
+/* Optional spacing between cards in grid layout */
+.card + .card {
+    margin-top: 1rem;
+}
+
+/* Small utility: highlight card (optional) */
+.card-highlight {
+    border-left: 4px solid #4e73df; /* blue highlight bar */
+}

@@ -1,0 +1,74 @@
+{% extends "base.html" %}
+
+{% block title %}Dashboard View 3{% endblock %}
+
+{% block content %}
+<div id="app">
+    
+  <h1 class="h3 mb-4 text-gray-800">Dashboard View 3</h1>
+  <div style="display: flex; align-items: center; justify-content: center; gap: 1rem; 
+              background-color: #ffffff; padding: 0.75rem 1rem; border-radius: 8px; 
+              box-shadow: 0 4px 12px rgba(0,0,0,0.1);" class="mb-3">
+    <label style="font-weight: 600; color: #333; font-size: 1rem;" class="mb-0">
+      Select Student:
+    </label>
+    <single-select v-model="selectedStudent" :options="students"></single-select>
+  </div>
+
+<div class="row mb-4">
+  <div class="col-md-9">
+    <card-six :selected-student="selectedStudent"></card-six>
+  </div>
+  <div class="col-md-3">
+    <card-seven :selected-student="selectedStudent"></card-seven>
+  </div>
+</div>
+
+
+
+
+
+
+  <div class="col-12">
+    <card-five :selected-student="selectedStudent"></card-five>
+  </div>
+  
+
+</div>
+
+<!-- Custom CSS styling -->
+<link rel="stylesheet" href="{{ url_for('static', filename='css/cards.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/components.css') }}">
+
+<!-- Include ECharts and Vue 3 -->
+<script src="https://cdn.jsdelivr.net/npm/echarts/dist/echarts.min.js"></script>
+<script src="https://unpkg.com/vue@3/dist/vue.global.prod.js"></script>
+
+<!-- Card components -->
+<script src="{{ url_for('static', filename='js/components/multi_select.js') }}"></script>
+<script src="{{ url_for('static', filename='js/components/single_select.js') }}"></script>
+<script src="{{ url_for('static', filename='js/cards/card_5.js') }}"></script>
+<script src="{{ url_for('static', filename='js/cards/card_6.js') }}"></script>
+<script src="{{ url_for('static', filename='js/cards/card_7.js') }}"></script>
+
+<script>
+  window.students = {{ students | tojson }};
+</script>
+<script>
+  const app = Vue.createApp({
+    data() {
+      return {
+        selectedStudent: window.students[0],
+        students: window.students
+      };
+    }
+  });
+
+  app.component('multi-select', MultiSelect);
+  app.component('single-select', SingleSelect);
+  app.component('card-five', CardFive);
+  app.component('card-six', CardSix);
+  app.component('card-seven', CardSeven);
+  app.mount('#app');
+</script>
+{% endblock %}
